@@ -66,7 +66,9 @@ function mostrarMedicosporEspecialidad(id_especialidad){
     //console.log(respuesta);
     //const medicos=await respuesta.json();
    let contador=0;
-
+   console.log(especialidades[id_especialidad].especialidad);
+    document.querySelector("#muestraFiltro").innerHTML= '<div class="info"><h2>Médicos por Especialidad: '
+    + especialidades[id_especialidad].especialidad +' </h2></div>'
    console.log(id_especialidad);
    for(let i=0; i<medicos.length;i++){
        console.log(especialidades[id_especialidad].especialidad)

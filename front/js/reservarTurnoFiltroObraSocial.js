@@ -70,6 +70,8 @@ function mostrarMedicosporObraSocial(id_os){
     let contador=0;
 
     console.log(id_os);
+    document.querySelector("#muestraFiltroObra").innerHTML= '<div class="info"><h2>Médicos por Obra Social: '
+    + obra_social[id_os].nombre +' </h2></div>'
     for(let i=0; i<medicos.length;i++){
         console.log(medicos[i].obraSocial)
         if (medicos[i].obraSocial == obra_social[id_os].nombre ){
