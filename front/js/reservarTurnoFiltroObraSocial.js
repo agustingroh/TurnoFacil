@@ -30,7 +30,7 @@ let medicos=[
 let especialidades=[
     {
         id:1,
-        especialidad:"pediatra"
+        especialidad:"Pediatra"
     },
     {
         id:1,
@@ -88,4 +88,4 @@ function mostrarMedicosporObraSocial(id_os){
     console.log(contador);
 }
 let id_os=0;
-console.log(mostrarMedicosporObraSocial(id_os));
+mostrarMedicosporObraSocial(id_os);
