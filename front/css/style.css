@@ -32,7 +32,7 @@ nav{
 }
 
 
-.sugerenciasMedicos, .sugerenciasEspecialidad, .sugerenciasObraSocial {
+.sugerenciasMedicos, .sugerenciasEspecialidad, .sugerenciasObraSocial, .sugerenciasMedicosObraSocial {
     background-color: var(--color3);
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.178)!important;
     border-radius: 15px!important;
@@ -138,6 +138,12 @@ nav{
 }
 .sugerencias{
     display:flex;
+    flex-direction: row;
+}
+
+.sugerencias_filtro{
+    display:flex;
+    justify-content: center;
     flex-direction: row;
 }
 
