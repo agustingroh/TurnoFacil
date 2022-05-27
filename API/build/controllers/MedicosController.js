@@ -36,55 +36,25 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var express = require('express');
-var bodyParser = require('body-parser');
-var session = require('express-session');
-var app = express();
-app.use(express.static('public'));
-app.use(session({
-    secret: 'secret',
-    resave: true,
-    saveUninitialized: true
-}));
-var port = process.env.PORT || 8080;
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-var cors = require('cors');
-var ObrasSocialController_1 = require("./controllers/ObrasSocialController");
-var MedicosController_1 = require("./controllers/MedicosController");
-app.use(cors());
-app.listen(port, function () {
-    console.log("Server is running on port: " + port);
-});
-app.get('/os', function (req, res) {
-    return __awaiter(this, void 0, void 0, function () {
-        var os, response;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    os = new ObrasSocialController_1.ObrasSocialController();
-                    return [4 /*yield*/, os.getAll()];
-                case 1:
-                    response = _a.sent();
-                    res.status(200).send(response);
-                    return [2 /*return*/];
-            }
+exports.MedicosController = void 0;
+var MedicosModel_1 = require("../model/MedicosModel");
+var MedicosController = /** @class */ (function () {
+    function MedicosController() {
+        this.medicosModel = new MedicosModel_1.MedicosModel();
+    }
+    MedicosController.prototype.getAll = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var r;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.medicosModel.getAll()];
+                    case 1:
+                        r = _a.sent();
+                        return [2 /*return*/, r];
+                }
+            });
         });
-    });
-});
-app.get('/medicos', function (req, res) {
-    return __awaiter(this, void 0, void 0, function () {
-        var med, response;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    med = new MedicosController_1.MedicosController();
-                    return [4 /*yield*/, med.getAll()];
-                case 1:
-                    response = _a.sent();
-                    res.status(200).send(response);
-                    return [2 /*return*/];
-            }
-        });
-    });
-});
+    };
+    return MedicosController;
+}());
+exports.MedicosController = MedicosController;
