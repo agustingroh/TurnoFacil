@@ -1,0 +1,180 @@
+:root {
+    --colorNav: #039D79;
+    --colorCards: #DEC6C3;
+    --color1: #D8F2C4;
+    --color2: #BAA9A4;
+    --color3: #FFFFFF;
+    --colorBotonAceptar: #A4D8A3;
+    --colorGradiente:#82b181;
+    --colorTurnoElegido: #BA7EC3;
+}
+
+
+body {
+    /* background-color: var(--colorBody); */
+    display: flex;
+   
+    
+}
+
+nav{
+    background-color:var(--colorNav);
+    margin: 0;
+    height: 70px;
+    display: flex;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    align-items: center;
+}
+
+
+.sugerenciasMedicos, .sugerenciasEspecialidad, .sugerenciasObraSocial {
+    background-color: var(--color3);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.178)!important;
+    border-radius: 15px!important;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-direction: column;
+    width:25%;
+    margin-left:5%;
+    margin-right: 5%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+
+.medicoIndividual {
+    width: 85%;
+}
+
+.ficha {
+    display: flex;
+    padding: 5px;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color2);
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    height: 50px;
+}
+
+.ficha img {
+    margin-right: 20px;
+    width: 50px;
+    height: 50px;
+}
+
+.fondoSugerencias{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color2);
+    margin-top: 10px;
+    border-radius: 10px;
+    width:85%;
+    height: 40px;   
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.botonAplicar{
+    width: 150px;
+    height: auto;
+    border-radius: 30px;
+    margin-top:20px;
+    /* margin-bottom: 20px;
+    margin-right: 5px; */
+    /* background: linear-gradient( var(--colorGradiente), var(--colorBotonAceptar)); */
+    background: var(--colorGradiente);
+    color: #fafafa;
+    padding: 0.75rem;
+    border:transparent;
+    justify-content: flex-end;
+    font-weight: bolder;
+}
+
+.botones{
+    display: flex;
+    justify-content:flex-end;
+    width:95%;
+}
+
+.seleccionCategorias{
+    display: flex;
+    flex-direction: row;
+    width:100%;
+    justify-content: space-around;
+}
+
+.seleccionCategorias img{
+    width:20px;
+    height:20px;
+}
+
+.categoriasAElegir{
+    display: flex;
+    flex-direction: row;
+    width:200px;
+    align-items: center;
+}
+.categoriasAElegir img{
+    margin-left:10px;
+}
+
+.categoriasAElegir button{
+    border: transparent;
+    background: transparent;
+}
+.container{
+    flex-direction: column;
+    width:100%;
+   
+}
+.sugerencias{
+    display:flex;
+    flex-direction: row;
+}
+
+.info{
+    margin-top:90px;
+    display: flex;
+    justify-content: center;
+}
+
+/*****************************VISUALIZAR TURNOS MEDICO*************************************/
+.medicoElegido{
+    margin-top:100px;
+    /* display: flex;
+    flex-direction: row; */
+    /* align-items: center;
+    flex-direction: column; */
+    width:25%;
+    margin-left:10px;
+    margin-right: 5%;
+}
+
+.calendario{
+    display:flex;
+    flex-direction: row;
+
+}
+
+.diasCalendario{
+    display: flex;
+    padding: 5px;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color1);
+    margin-top: 30px;
+    margin-right: 10px;
+    margin-left: 10px;
+    border-radius: 10px;
+    width: 230px;
+    height: 200px;
+}
