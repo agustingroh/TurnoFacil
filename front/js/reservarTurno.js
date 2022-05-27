@@ -48,7 +48,7 @@ let especialidades=[
 ];
 
 
-document.getElementById("expandirMedicos").addEventListener("click",mostrarMedicos);
+//document.getElementById("expandirMedicos").addEventListener("click",mostrarMedicos);
 
 function mostrarMedicos(){
     // const respuesta= await fetch ("http://localhost:8080/medicos");
