@@ -1,1 +1,5 @@
 node_modules
+build/model/Turno_facil-shm
+build/model/Turno_facil-wal
+
+**/build/*.js

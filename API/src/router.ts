@@ -13,6 +13,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 var cors = require('cors');
 import {ObrasSocialController} from "./controllers/ObrasSocialController";
+import { MedicosController } from './controllers/MedicosController';
 
 
 app.use(cors());
@@ -24,4 +25,14 @@ app.get('/os', async function (req:any, res:any) {
     const os = new ObrasSocialController();
     const response = await os.getAll();
     res.status(200).send(response);
+});
+app.get('/medicos', async function (req:any, res:any) {
+    const med = new MedicosController();
+    const response = await med.getAll();
+    res.status(200).send(response);
+});
+app.get(`/medicos/:id`, async function (req:any, res:any) {
+    const med = new MedicosController();
+    const response = await med.getById(req.params.id);
+    res.status(200).send(response); 
 });
