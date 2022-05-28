@@ -188,3 +188,28 @@ nav{
     width: 230px;
     height: 200px;
 }
+
+.fichaSelected{
+    display: flex;
+    padding: 5px;
+    align-items: center;
+    justify-content: center;
+    background-color: #995f4e;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    height: 50px;
+}
+
+.fichaSelectedOB, .fichaSelectedEsp{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #995f4e;
+    margin-top: 10px;
+    border-radius: 10px;
+    width:85%;
+    height: 40px;   
+    margin-top: 5px;
+    margin-bottom: 5px;
+}

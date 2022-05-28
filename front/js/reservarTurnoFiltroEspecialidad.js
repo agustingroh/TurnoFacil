@@ -1,66 +1,3 @@
-let medicos=[
-    {
-        id:1,
-        nombre: "Maria Gonzalez",
-        especialidad:"Pediatra",
-        obraSocial:"PAMI"
-    },
-    {
-        id:2,
-        nombre: "Tomás Gonzalez",
-        especialidad:"Pediatra",
-        obraSocial:"PAMI"
-    },
-    {
-        id:3,
-        nombre: "Juan Gonzalez",
-        especialidad:"Pediatra",
-        obraSocial:"PAMI"
-    },
-    {
-        id:4,
-        nombre: "Jorgelina Perez",
-        especialidad:"Pediatra",
-        obraSocial:"PAMI"
-    }
-
-];
-
-let especialidades=[
-    {
-        id:1,
-        especialidad:"Pediatra"
-    },
-    {
-        id:1,
-        especialidad:"medico clinico"
-    },
-    {
-        id:1,
-        especialidad:"nutricionista"
-    },
-    {
-        id:1,
-        especialidad:"oftalmologo"
-    }
-];
-
-
-let obra_social=[
-{
-    id_os:0,
-    nombre:"PAMI"
-},
-{
-    id_os:1,
-    nombre:"OSDE"
-},
-{
-    id_os:2,
-    nombre:"GALENO"
-}
-
-]
 
 const myurl= window.location.href;
 let url = new URL(myurl);
@@ -68,25 +5,33 @@ let params = new URLSearchParams(url.search);
 let idEspe = params.get('idEspecialidad')
 console.log(idEspe);
 
-function mostrarMedicosporEspecialidad(idEspe){
-    //const respuesta= await fetch ("http://localhost:8080/os/id_os");
-    //console.log(respuesta);
-    //const medicos=await respuesta.json();
+async function mostrarMedicosporEspecialidad(idEspe){
+    const respuestaOs= await fetch ("http://localhost:8080/especialidades");
+    const especialidades=await respuestaOs.json();
+    const respuesta= await fetch ("http://localhost:8080/medicos");
+    const medicos = await respuesta.json();
+    let selectEspecialidad;
+    for (let i=0; i<especialidades.length;i++){
+        if (especialidades[i].id_espec==idEspe){
+            selectEspecialidad=especialidades[i].nombre;
+        }
+    }
    let contador=0;
-   console.log(especialidades[id_especialidad].especialidad);
+   console.log(selectEspecialidad);
     document.querySelector("#muestraFiltro").innerHTML= '<div class="info"><h2>Médicos por Especialidad: '
-    + especialidades[id_especialidad].especialidad +' </h2></div>'
-   console.log(id_especialidad);
+    + selectEspecialidad +' </h2></div>'
+    let j=1;
    for(let i=0; i<medicos.length;i++){
-       console.log(especialidades[id_especialidad].especialidad)
-            if (medicos[i].especialidad == especialidades[id_especialidad].especialidad ){
+        const respuesta= await fetch ("http://localhost:8080/medicos/"+j+"");
+        j++;
+        const medicoId = await respuesta.json();
+            if ( medicoId.especialidades[0].nombre == selectEspecialidad){
                 contador++;
-                document.querySelector(".sugerenciasMedicosEspecialidad").innerHTML+='<div class="medicoIndividual">'+
-                            '<div class="ficha"> '+
+                document.querySelector(".sugerenciasMedicosEspecialidad").innerHTML+='<div class="medicoIndividual" onClick=guardarMedico('+medicos[i].id_medico+')>'+
+                '<div class="ficha" id="med'+medicos[i].id_medico+'">'+
                                 '<img src="../img/dr'+[i+1]+'.jpeg" alt="">'+
                                 '<div>'+
-                                    '<h3>Dr '+ medicos[i].nombre + '</h3>'+
-                                    '<h4>'+medicos[i].especialidad+'</h4>'+
+                                '<h3>Dr '+ medicos[i].nombre + ' ' +  medicos[i].apellido +  '</h3>'+
                                 '</div>'+
                             '</div>'+
                         '</div>'
@@ -96,3 +41,19 @@ function mostrarMedicosporEspecialidad(idEspe){
 }
 
 mostrarMedicosporEspecialidad(idEspe);
+
+
+let med;
+function guardarMedico(id){
+    med=id;
+    document.querySelector("#med"+id).classList.toggle("fichaSelected");
+    console.log("medico "+ med);
+    return med;
+}
+
+document.querySelector("#botonAplicar").addEventListener("click",redirigir);
+
+function redirigir(){ 
+        let idmedico=guardarMedico(med);
+        window.location.href = "../html/visualizarHorariosMedico.html?idMed="+idmedico;
+}
