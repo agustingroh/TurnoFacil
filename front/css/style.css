@@ -187,6 +187,7 @@ nav{
     border-radius: 10px;
     width: 230px;
     height: 200px;
+    flex-direction: column;
 }
 
 .fichaSelected{
@@ -212,4 +213,28 @@ nav{
     height: 40px;   
     margin-top: 5px;
     margin-bottom: 5px;
+}
+
+.rangoFechas{
+    margin-left: 15px;
+    padding-top: 10px;
+    display: flex;
+    justify-content:flex-start;
+    
+}
+
+.rangoFechas label{
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.rangoFechas input{
+    border-radius:5px;
+    border:1px solid grey;
+    margin-right: 20px;
+}
+
+
+.momentoDelDiaElegido{
+    margin-left:200px;
 }
