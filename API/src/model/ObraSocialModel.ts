@@ -8,10 +8,10 @@ export class ObraSocialModel extends Model {
 
     public async getAll() {
         const db: any = await this.openDb();
-        const ob = util.promisify(db.all.bind(db));
-        const files = await ob("SELECT * FROM Obra_Social");
+        const obrasSocialesModel = util.promisify(db.all.bind(db));
+        const obrasSociales = await obrasSocialesModel("SELECT * FROM Obra_Social");
         db.close();
-        return files;
+        return obrasSociales;
     }
 
 }
