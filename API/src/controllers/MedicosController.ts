@@ -25,4 +25,10 @@ export class MedicosController{
         return timeTable;
 
     }
+
+    public async getTurnosMedicoById(id:number){
+        const r = await this.medicosModel.getTurnosMedicoById(id);
+        return r;
+
+    }
 }
