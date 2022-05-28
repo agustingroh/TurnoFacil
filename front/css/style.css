@@ -147,6 +147,10 @@ nav{
     justify-content: center;
 }
 
+
+.seleted{
+    background-color: #BA7EC3;
+}
 /*****************************VISUALIZAR TURNOS MEDICO*************************************/
 .medicoElegido{
     margin-top:100px;
