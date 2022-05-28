@@ -50,6 +50,19 @@ function selected(){
     }  
 }
 
+
+async function mostrarHorariosMedico(idmedico){
+    const respuesta= await fetch (`http://localhost:8080/medico/horarioatencion/${idmedico}`);
+    const horarios= await respuesta.json();
+    const calendario=document.querySelector(".calendario");
+    Object.entries(horarios).forEach(([key,value])=>{ 
+        if(key!="id_medico")
+        calendario.innerHTML+='<div class="diasCalendario"><h3>'+key+' </h3><h4>'+value+'</h4></div>'});
+    
+}
+
+mostrarHorariosMedico(idmedico);
+
 function redirigir(){ 
     window.location.href = "../html/prueba.html";
     // console.log("red"+fechaDesde)
