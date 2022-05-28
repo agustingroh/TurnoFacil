@@ -19,4 +19,10 @@ export class MedicosController{
         return r;
 
     }
+
+    public async getTimeTable(id:number){
+        const timeTable = await this.medicosModel.getTimeTable(id);
+        return timeTable;
+
+    }
 }
