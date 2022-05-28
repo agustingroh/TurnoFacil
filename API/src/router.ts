@@ -1,3 +1,5 @@
+import {EspecilidadController} from "./controllers/EspecilidadController";
+
 var express = require('express');
 var bodyParser = require('body-parser');
 var session = require('express-session');
@@ -21,11 +23,15 @@ app.use(cors());
 app.listen(port, function () {
     console.log("Server is running on port: " + port);
 });
+
+// Obras sociales
 app.get('/os', async function (req:any, res:any) {
     const os = new ObrasSocialController();
     const response = await os.getAll();
     res.status(200).send(response);
 });
+
+// Medicos
 app.get('/medicos', async function (req:any, res:any) {
     const med = new MedicosController();
     const response = await med.getAll();
@@ -35,4 +41,11 @@ app.get(`/medicos/:id`, async function (req:any, res:any) {
     const med = new MedicosController();
     const response = await med.getById(req.params.id);
     res.status(200).send(response); 
+});
+
+// Especialidades
+app.get('/especialidades', async function (req:any, res:any) {
+    const especilidades = new EspecilidadController();
+    const response = await especilidades.getAll();
+    res.status(200).send(response);
 });

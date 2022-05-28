@@ -1,5 +1,4 @@
 node_modules
-build/model/Turno_facil-shm
-build/model/Turno_facil-wal
-
-**/build/*.js
+API/build/model/Turno_facil-shm
+API/build/model/Turno_facil-wal
+API/build/**/*.js
