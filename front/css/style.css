@@ -32,7 +32,7 @@ nav{
 }
 
 
-.sugerenciasMedicos, .sugerenciasEspecialidad, .sugerenciasObraSocial {
+.sugerenciasMedicos, .sugerenciasEspecialidad, .sugerenciasObraSocial, .sugerenciasMedicosObraSocial, .sugerenciasMedicosEspecialidad {
     background-color: var(--color3);
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.178)!important;
     border-radius: 15px!important;
@@ -141,6 +141,12 @@ nav{
     flex-direction: row;
 }
 
+.sugerencias_filtro{
+    display:flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
 .info{
     margin-top:90px;
     display: flex;
@@ -181,4 +187,29 @@ nav{
     border-radius: 10px;
     width: 230px;
     height: 200px;
+}
+
+.fichaSelected{
+    display: flex;
+    padding: 5px;
+    align-items: center;
+    justify-content: center;
+    background-color: #995f4e;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    height: 50px;
+}
+
+.fichaSelectedOB, .fichaSelectedEsp{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #995f4e;
+    margin-top: 10px;
+    border-radius: 10px;
+    width:85%;
+    height: 40px;   
+    margin-top: 5px;
+    margin-bottom: 5px;
 }

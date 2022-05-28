@@ -21,7 +21,10 @@ mostrarMedicos();
 let med;
 function guardarMedico(id){
     med=id;
-    document.querySelector("#med"+id).style.background="#995f4e";
+    if (id!=null){
+    document.querySelector("#med"+id).classList.toggle("fichaSelected");
+    }
+    //document.querySelector("#med"+id).style.background="#995f4e";
     console.log("medico "+ med);
     return med;
 }
@@ -42,7 +45,10 @@ mostrarEspecialidades();
 let esp;
 function guardarEspecialidades(id){
     esp=id;
-    document.querySelector("#esp"+id).style.background="#995f4e";
+    if (id!=null){
+        document.querySelector("#esp"+id).classList.toggle("fichaSelectedOB");
+    }
+    //document.querySelector("#esp"+id).style.background="#995f4e";
     console.log("esp "+ esp);
     return esp;
 }
@@ -60,10 +66,12 @@ async function mostrarObrasSociales(){
 
 mostrarObrasSociales();
 
-let obrasSocial;
+let obrasSocial=null;
 function guardarObrasSociales(id){
    obrasSocial=id;
+   if (id!=null){
    document.querySelector("#os"+id).style.background="#995f4e";
+   }
    console.log(obrasSocial);
    return obrasSocial;
 }
@@ -75,6 +83,18 @@ document.querySelector("#botonAplicar").addEventListener("click", redirigir);
 function redirigir(){ 
     let idmedico=guardarMedico(med);
     let idespecialidad=guardarEspecialidades(esp);
-    window.location.href = "../html/visualizarHorariosMedico.html?idMed="+idmedico+"&idEspecialidad="+idespecialidad+ "&idOS=" + guardarObrasSociales(obrasSocial);
+    let idObraSocial=guardarObrasSociales(obrasSocial);
+    if (idespecialidad == null & idObraSocial==null){
+        window.location.href = "../html/visualizarHorariosMedico.html?idMed="+idmedico;
+    }
+    if (idespecialidad !=null & idObraSocial==null & idmedico==null){
+        window.location.href = "../html/visualizarPorEspecialidad.html?idMed="+idmedico+"&idEspecialidad="+idespecialidad+ "&idOS=" +idObraSocial;
+    }
+    if (idespecialidad == null & idObraSocial != null & idmedico == null){
+        window.location.href = "../html/visualizarPorObraSocial.html?idMed="+idmedico+"&idEspecialidad="+idespecialidad+ "&idOS=" +idObraSocial;
+    }
+    if (idespecialidad != null & idObraSocial != null & idmedico == null){
+        window.location.href = "../html/visualizarPorEspObra.html?idEspecialidad="+idespecialidad+ "&idOS=" +idObraSocial;
+    }
 }
 
