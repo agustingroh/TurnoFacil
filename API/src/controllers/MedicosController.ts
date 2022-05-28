@@ -14,4 +14,9 @@ export class MedicosController{
         return r;
 
     }
+    public async getById(id:number){
+        const r = await this.medicosModel.getById(id);
+        return r;
+
+    }
 }

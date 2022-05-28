@@ -14,4 +14,22 @@ export class MedicosModel extends Model {
         return files;
     }
 
+    public async getById(id:number) {
+        const db: any = await this.openDb();
+        const ob = util.promisify(db.all.bind(db));
+        const mDB = util.promisify(db.get.bind(db));
+        const medico = await mDB(`SELECT m.nombre, m.apellido FROM Medico m WHERE m.id_medico=?;`,id);
+        const obraSocial = await ob(`SELECT ob.nombre FROM Obra_Social ob JOIN Medico_os mos ON (ob.id_os = mos.id_os) WHERE mos.id_medico=?;`,id);
+        const especialidad = await ob(`SELECT es.nombre FROM Especialidad es JOIN Medico_Especialidad me ON (es.id_espec = me.id_espec) WHERE me.id_medico=?;`,id);
+        if (medico!==undefined){
+            medico.especialidades=especialidad;
+            medico.obrasSociales=obraSocial;
+        }else{
+            db.close();
+            return {};
+        }
+        db.close();   
+
+        return medico;
+    }
 }
