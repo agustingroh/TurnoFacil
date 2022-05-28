@@ -62,6 +62,12 @@ let obra_social=[
 }
 
 ]
+const myurl= window.location.href;
+let url = new URL(myurl);
+let params = new URLSearchParams(url.search);
+let id_os = params.get('id_os');// 'chrome-instant'
+
+console.log(id_os);
 
 function mostrarMedicosporObraSocial(id_os){
      //const respuesta= await fetch ("http://localhost:8080/os/id_os");
@@ -71,7 +77,7 @@ function mostrarMedicosporObraSocial(id_os){
 
     console.log(id_os);
     document.querySelector("#muestraFiltroObra").innerHTML= '<div class="info"><h2>Médicos por Obra Social: '
-    + obra_social[id_os].nombre +' </h2></div>'
+    + obra_social[id_os].nombre +'</h2></div>'
     for(let i=0; i<medicos.length;i++){
         console.log(medicos[i].obraSocial)
         if (medicos[i].obraSocial == obra_social[id_os].nombre ){
@@ -89,5 +95,5 @@ function mostrarMedicosporObraSocial(id_os){
     }
     console.log(contador);
 }
-let id_os=0;
+
 mostrarMedicosporObraSocial(id_os);

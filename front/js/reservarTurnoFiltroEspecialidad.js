@@ -61,7 +61,14 @@ let obra_social=[
 }
 
 ]
-function mostrarMedicosporEspecialidad(id_especialidad){
+
+const myurl= window.location.href;
+let url = new URL(myurl);
+let params = new URLSearchParams(url.search);
+let idEspe = params.get('idEspecialidad')
+console.log(idEspe);
+
+function mostrarMedicosporEspecialidad(idEspe){
     //const respuesta= await fetch ("http://localhost:8080/os/id_os");
     //console.log(respuesta);
     //const medicos=await respuesta.json();
@@ -87,5 +94,5 @@ function mostrarMedicosporEspecialidad(id_especialidad){
             }
    console.log(contador);
 }
-let id_especialidad=0;
-mostrarMedicosporEspecialidad(id_especialidad);
+
+mostrarMedicosporEspecialidad(idEspe);
