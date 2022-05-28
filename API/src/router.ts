@@ -43,6 +43,12 @@ app.get(`/medicos/:id`, async function (req:any, res:any) {
     res.status(200).send(response); 
 });
 
+app.get(`/medico/horarioatencion/:id`, async function (req:any, res:any) {
+    const med = new MedicosController();
+    const response = await med.getTimeTable(req.params.id);
+    res.status(200).send(response);
+});
+
 // Especialidades
 app.get('/especialidades', async function (req:any, res:any) {
     const especilidades = new EspecilidadController();
