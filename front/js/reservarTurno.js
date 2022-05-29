@@ -5,8 +5,7 @@ async function mostrarMedicos(){
     for(let i=0; i<medicos.length;i++){
         console.log( '<div class="ficha" id="med'+medicos[i].id_medico+'">');
        document.querySelector(".sugerenciasMedicos").innerHTML+='<div class="medicoIndividual" onClick=guardarMedico('+medicos[i].id_medico+')>'+
-                    '<div class="ficha" id="med'+medicos[i].id_medico+'">'+
-                        '<img src="../img/dr'+[i+1]+'.jpeg" alt="">'+
+                    '<div class="ficha" id="med'+medicos[i].id_medico+'">'+                       
                         '<div>'+
                             '<h3>Dr '+ medicos[i].nombre + ' ' +  medicos[i].apellido +  '</h3>'+
                         '</div>'+
