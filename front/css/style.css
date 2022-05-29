@@ -32,10 +32,22 @@ nav{
 }
 
 
-.sugerenciasMedicos, .sugerenciasEspecialidad, .sugerenciasObraSocial, .sugerenciasMedicosObraSocial, .sugerenciasMedicosEspecialidad {
+.sugerenciasMedicos, .sugerenciasEspecialidad, .sugerenciasObraSocial{
     background-color: var(--color3);
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.178)!important;
     border-radius: 15px!important;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-direction: column;
+    width:25%;
+    margin-left:5%;
+    margin-right: 5%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.sugerenciasMedicosEspecialidad, .sugerenciasMedicosObraSocial{
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -64,6 +76,18 @@ nav{
     height: 50px;
 }
 
+.fichaMed{
+    display: flex;
+    padding: 5px;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color2);
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    height: 50px;
+    width:200px;
+}
 .ficha img {
     margin-right: 20px;
     width: 50px;
