@@ -25,7 +25,7 @@ let fechaDesde;
 let fechaHasta;
 let turnoManana;
 let turnoTarde;
-let turnoTodo;
+let turnoTodo = "todo";
 
 document.querySelector("#dateDesde").addEventListener("change",(params)=>{
    fechaDesde = document.querySelector("#dateDesde").value;
