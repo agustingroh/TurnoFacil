@@ -1,0 +1,114 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/8b0309ea2f.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/style.css">
+    
+    <title>Reservar Turno</title>
+</head>
+<body>
+    <nav class="navBar">
+        <img src="../img/logo.png" alt="logo turno fácil"></a>
+    </nav>
+    <div class="container">
+      <div class="containerTable">
+        <table>
+            <caption>Horarios Disponibles</caption>
+            <col class="weekend">
+            <col class="weekday" span="5">
+            <col class="weekend">
+            <thead>
+              <tr>
+                <th>Hora</th>
+                <th>Lunes</th>
+                <th>Martes</th>
+                <th>Miercoles</th>
+                <th>Jueves</th>
+                <th>Viernes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><div class="day">9:00</div></td>
+                <td><div class="day" onclick="seleccionar_turno()"></div></td>
+                <td class="ocupado"><div class="day"></div>
+                    <div class="notes">no disponible</div></td>
+                    <td><div class="day" onclick="seleccionar_turno()"></div></td>
+                    <td><div class="day" onclick="seleccionar_turno()"></div></td>
+                    <td class="ocupado"><div class="day"></div>
+                        <div class="notes">no disponible</div>
+                    </td>
+              </tr>
+              <tr>
+                <td><div class="day">9:30</div></td>
+                <td><div class="day" onclick="seleccionar_turno()"></div></td>
+                <td><div class="day" onclick="seleccionar_turno()"></div></td>
+                <td class="ocupado"><div class="day"></div>
+                    <div class="notes">no disponible</div></td>
+                    <td class="ocupado"><div class="day"></div>
+                        <div class="notes">no disponible</div></td>
+                        <td class="ocupado"><div class="day"></div>
+                            <div class="notes">no disponible</div></td>
+              </tr>
+              <tr>
+                <td><div class="day">10:00</div></td>
+                <td><div class="day" onclick="seleccionar_turno()"></div></td>
+                <td><div class="day" onclick="seleccionar_turno()"></div></td>
+                <td><div class="day" onclick="seleccionar_turno()"></div></td>
+                <td><div class="day" onclick="seleccionar_turno()"></div></td>
+                <td class="ocupado"><div class="day"></div>
+                    <div class="notes">no disponible</div></td>
+              </tr>
+              <tr>
+                <td><div class="day">10:30</div></td>
+                <td><div class="day" onclick="seleccionar_turno()"></div></td>
+                <td><div class="day" onclick="seleccionar_turno()"></div></td>
+                <td><div class="day" onclick="seleccionar_turno()"></div></td>
+                <td class="ocupado"><div class="day"></div>
+                    <div class="notes">no disponible</div></td>
+                <td><div class="day" onclick="seleccionar_turno()"></div></td>
+              </tr>
+              <tr>
+                <td><div class="day">11:00</div></td>
+                <td><div class="day" onclick="seleccionar_turno()"></div></td>
+                <td><div class="day" onclick="seleccionar_turno()"></div></td>
+                <td class="ocupado"><div class="day"></div>
+                    <div class="notes">no disponible</div></td>
+                    <td class="ocupado"><div class="day"></div>
+                        <div class="notes">no disponible</div></td>
+                <td><div class="day" onclick="seleccionar_turno()"></div></td>
+              </tr>
+              <tr>
+                <td><div class="day">11:30</div></td>
+                <td class="ocupado"><div class="day"></div>
+                    <div class="notes">no disponible</div></td>
+                    <td class="ocupado"><div class="day"></div>
+                        <div class="notes">no disponible</div></td>
+                        <td><div class="day" onclick="seleccionar_turno()"></div></td>
+                        <td><div class="day" onclick="seleccionar_turno()"></div></td>
+                        <td><div class="day" onclick="seleccionar_turno()"></div></td>
+              </tr>
+              <tr>
+                <td><div class="day">12:00</div></td>
+                <td><div class="day" onclick="seleccionar_turno()"></div></td>
+                <td class="ocupado"><div class="day"></div>
+                    <div class="notes">no disponible</div></td>
+                <td><div class="day" onclick="seleccionar_turno()"></div></td>
+                <td class="ocupado"><div class="day"></div>
+                    <div class="notes">no disponible</div></td>
+                <td><div class="day" onclick="seleccionar_turno()"></div></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="botonesHora">
+            <button id="botonAplicar" class="botonVolver">Volver</button>
+            <button id="botonAplicar" class="botonAplicar">Reservar</button>
+        </div>
+    </div>
+</div>
+</body>
+<script src="../js/seleccionarHora.js"></script>
+</html>
