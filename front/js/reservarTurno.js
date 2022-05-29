@@ -17,11 +17,15 @@ async function mostrarMedicos(){
 
 mostrarMedicos();
 
-let med;
+let med=null;
 function guardarMedico(id){
+    if (med!=null && med!=id){
+        document.querySelector("#med"+med).style.background="#baa9a4";
+        document.querySelector("#med"+id).classList.toggle("fichaSelected");
+    }
     med=id;
     if (id!=null){
-    document.querySelector("#med"+id).classList.toggle("fichaSelected");
+    document.querySelector("#med"+med).classList.toggle("fichaSelected");
     }
     //document.querySelector("#med"+id).style.background="#995f4e";
     console.log("medico "+ med);
@@ -43,9 +47,13 @@ mostrarEspecialidades();
 
 let esp;
 function guardarEspecialidades(id){
+    if (esp!=null && esp!=id){
+        document.querySelector("#esp"+esp).style.background="#baa9a4";
+        document.querySelector("#esp"+id).classList.toggle("fichaSelectedEsp");
+    }
     esp=id;
     if (id!=null){
-        document.querySelector("#esp"+id).classList.toggle("fichaSelectedOB");
+        document.querySelector("#esp"+esp).classList.toggle("fichaSelectedEsp");
     }
     //document.querySelector("#esp"+id).style.background="#995f4e";
     console.log("esp "+ esp);
@@ -67,9 +75,13 @@ mostrarObrasSociales();
 
 let obrasSocial=null;
 function guardarObrasSociales(id){
+    if (obrasSocial!=null && obrasSocial!=id){
+        document.querySelector("#os"+obrasSocial).style.background="#baa9a4";
+        document.querySelector("#os"+id).classList.toggle("fichaSelectedOB");
+    }
    obrasSocial=id;
    if (id!=null){
-   document.querySelector("#os"+id).style.background="#995f4e";
+        document.querySelector("#os"+obrasSocial).classList.toggle("fichaSelectedOB");
    }
    console.log(obrasSocial);
    return obrasSocial;
