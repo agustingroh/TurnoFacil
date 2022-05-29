@@ -94,7 +94,7 @@ nav{
     height: 50px;
 }
 
-.fondoSugerencias{
+.fondoSugerencias , .fondoSugerenciasObraSocial{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -106,6 +106,7 @@ nav{
     margin-top: 5px;
     margin-bottom: 5px;
 }
+
 
 .botones{
     display: flex;
@@ -349,4 +350,8 @@ table {
         display: flex;
         justify-content:space-around;
         width:95%;
+    }
+
+    .noSelected{
+        background: var(--color2);
     }
