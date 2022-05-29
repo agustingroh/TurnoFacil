@@ -31,7 +31,7 @@ async function mostrarMedicosporObraSocial(id_os){
             contador++;
             document.querySelector(".sugerenciasMedicosObraSocial").innerHTML+='<div class="medicoIndividual" onClick=guardarMedico('+medicos[i].id_medico+')>'+
             '<div class="ficha" id="med'+medicos[i].id_medico+'">'+
-                            '<img src="../img/dr'+[i+1]+'.jpeg" alt="">'+
+
                             '<div>'+
                                 '<h3>Dr '+ medicos[i].nombre + '</h3>'+
                             '</div>'+
