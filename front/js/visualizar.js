@@ -2,7 +2,7 @@ const myurl= window.location.href;
 let url = new URL(myurl);
 let params = new URLSearchParams(url.search);
 let idmedico = params.get('idMed')
-console.log("medico "+idmedico);
+
 
 
 async function mostrarMedico(idmedico){
@@ -46,7 +46,9 @@ document.querySelector("#dateHasta").addEventListener("change",(params)=>{
 
 
 
-document.querySelector(".botonAplicar").addEventListener("click", redirigir);
+document.querySelector(".botonAplicar").addEventListener("click", ()=>{
+    redirigir(idmedico);
+});
 
 
 
@@ -79,14 +81,15 @@ async function mostrarHorariosMedico(idmedico){
 
 mostrarHorariosMedico(idmedico);
 
-function redirigir(){ 
+function redirigir(idMedico){
+
     if(fechaDesde && fechaHasta && turnoManana==null & turnoTarde==null){
-        window.location.href = "../html/turnosDisponibles.html";
+        window.location.href = `../html/turnosDisponibles.html?idMed=${idMedico}`;
     }
     else if(fechaDesde && fechaHasta && turnoManana){
-        window.location.href = "../html/horariosManiana.html";
+        window.location.href = `../html/horariosManiana.html?idMed=${idMedico}`;
     }
     else{
-        window.location.href = "../html/horariosTarde.html";
+        window.location.href = `../html/horariosTarde.html?idMed=${idMedico}`;
     }
 }
