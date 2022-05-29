@@ -42,4 +42,12 @@ export class MedicosModel extends Model {
         db.close();
         return timeTable;
     }
+
+    public async getTurnosMedicoById(id:number) {
+        const db: any = await this.openDb();
+        const tu = util.promisify(db.all.bind(db));
+        const turnos = await tu(`SELECT * FROM Turno t WHERE t.id_medico=? ORDER BY t.fecha ;`,id);
+        db.close();   
+        return turnos;
+    }
 }
