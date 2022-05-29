@@ -19,16 +19,18 @@ mostrarMedicos();
 
 let med=null;
 function guardarMedico(id){
-    if (med!=null && med!=id){
-        document.querySelector("#med"+med).style.background="#baa9a4";
-        document.querySelector("#med"+id).classList.toggle("fichaSelected");
-    }
-    med=id;
     if (id!=null){
-    document.querySelector("#med"+med).classList.toggle("fichaSelected");
+        desmarcarEspecialidades();
+        desmarcarObrasSociales();
+        const medicos = document.querySelectorAll(".ficha");
+        medicos.forEach((m) => {
+            m.classList.add("noSelected");
+            m.classList.remove("fichaSelected");
+        });
+        document.querySelector("#med" + id).classList.add("fichaSelected");
+        document.querySelector("#med" + id).classList.remove("noSelected");
+        med = id;
     }
-    //document.querySelector("#med"+id).style.background="#995f4e";
-    console.log("medico "+ med);
     return med;
 }
 
@@ -45,18 +47,21 @@ async function mostrarEspecialidades(){
 
 mostrarEspecialidades();
 
-let esp;
+let esp=null;
 function guardarEspecialidades(id){
-    if (esp!=null && esp!=id){
-        document.querySelector("#esp"+esp).style.background="#baa9a4";
-        document.querySelector("#esp"+id).classList.toggle("fichaSelectedEsp");
-    }
-    esp=id;
+    desmarcarMedicos();
     if (id!=null){
-        document.querySelector("#esp"+esp).classList.toggle("fichaSelectedEsp");
+        const espec = document.querySelectorAll(".fondoSugerencias");
+        espec.forEach((e)=>{
+                e.classList.add("noSelected");
+                e.classList.remove("fichaSelectedEsp");
+        });
+        document.querySelector("#esp"+id).classList.add("fichaSelectedEsp");
+        document.querySelector("#esp"+id).classList.remove("noSelected");
+        esp=id;
     }
-    //document.querySelector("#esp"+id).style.background="#995f4e";
-    console.log("esp "+ esp);
+
+
     return esp;
 }
 
@@ -65,7 +70,7 @@ async function mostrarObrasSociales(){
     const respuesta= await fetch ("http://localhost:8080/os");
     const obrasSociales=await respuesta.json();
     for(let i=0; i<obrasSociales.length;i++){
-        document.querySelector(".sugerenciasObraSocial").innerHTML+='<div class="fondoSugerencias" id="os' + obrasSociales[i].id_os+ '" onClick=guardarObrasSociales('+obrasSociales[i].id_os+')>'+
+        document.querySelector(".sugerenciasObraSocial").innerHTML+='<div class="fondoSugerenciasObraSocial" id="os' + obrasSociales[i].id_os+ '" onClick=guardarObrasSociales('+obrasSociales[i].id_os+')>'+
                     '<h3>'+obrasSociales[i].nombre+'</h3>'+
                 '</div>'       
     }
@@ -75,16 +80,45 @@ mostrarObrasSociales();
 
 let obrasSocial=null;
 function guardarObrasSociales(id){
-    if (obrasSocial!=null && obrasSocial!=id){
-        document.querySelector("#os"+obrasSocial).style.background="#baa9a4";
-        document.querySelector("#os"+id).classList.toggle("fichaSelectedOB");
+    desmarcarMedicos();
+    if(id!=null){
+        const obrasSociales = document.querySelectorAll(".fondoSugerenciasObraSocial");
+        obrasSociales.forEach((os)=>{
+            os.classList.add("noSelected");
+            os.classList.remove("fichaSelectedOB");
+        });
+        document.querySelector("#os"+id).classList.add("fichaSelectedOB");
+        document.querySelector("#os"+id).classList.remove("noSelected");
+        obrasSocial=id;
     }
-   obrasSocial=id;
-   if (id!=null){
-        document.querySelector("#os"+obrasSocial).classList.toggle("fichaSelectedOB");
-   }
-   console.log(obrasSocial);
    return obrasSocial;
+}
+
+function desmarcarMedicos(){
+    const medicos = document.querySelectorAll(".ficha");
+    medicos.forEach((m)=>{
+        m.classList.add("noSelected");
+        m.classList.remove("fichaSelected");
+    });
+    med=null;
+}
+
+function desmarcarObrasSociales(){
+    const obrasSociales = document.querySelectorAll(".fondoSugerenciasObraSocial");
+    obrasSociales.forEach((os)=>{
+        os.classList.add("noSelected");
+        os.classList.remove("fichaSelectedOB");
+    });
+    obrasSocial = null;
+}
+
+function desmarcarEspecialidades(){
+    const espec = document.querySelectorAll(".fondoSugerencias");
+    espec.forEach((e)=>{
+        e.classList.add("noSelected");
+        e.classList.remove("fichaSelectedEsp");
+    });
+    esp = null;
 }
 
 
@@ -95,6 +129,9 @@ function redirigir(){
     let idmedico=guardarMedico(med);
     let idespecialidad=guardarEspecialidades(esp);
     let idObraSocial=guardarObrasSociales(obrasSocial);
+    console.log(idespecialidad);
+    console.log(idmedico);
+    console.log(idObraSocial);
     if (idespecialidad == null & idObraSocial==null){
         window.location.href = "../html/visualizarHorariosMedico.html?idMed="+idmedico;
     }
