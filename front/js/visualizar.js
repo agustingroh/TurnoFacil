@@ -25,7 +25,7 @@ let fechaDesde;
 let fechaHasta;
 let turnoManana;
 let turnoTarde;
-
+let turnoTodo;
 
 document.querySelector("#dateDesde").addEventListener("change",(params)=>{
    fechaDesde = document.querySelector("#dateDesde").value;
@@ -33,15 +33,25 @@ document.querySelector("#dateDesde").addEventListener("change",(params)=>{
 
 document.querySelector("#dateHasta").addEventListener("change",(params)=>{
     fechaHasta = document.querySelector("#dateHasta").value;
+    
  });
  
  document.querySelector("#maniana").addEventListener("change",(params)=>{
     turnoManana = document.querySelector("#maniana").value;
-    document.querySelector("#tarde").disabled=true;
+    turnoTarde=null;
+    turnoTodo=null;
   
  });
  document.querySelector("#tarde").addEventListener("change",(params)=>{
-    turnoTarde = document.querySelector("#maniana").disabled=true;
+    turnoTarde = document.querySelector("#tarde").value;
+    turnoManana=null;
+    turnoTodo=null;
+ });
+
+ document.querySelector("#todo").addEventListener("change",(params)=>{
+    turnoTodo = document.querySelector("#todo").value;
+    turnoManana=null;
+    turnoTarde=null;
  });
 
 
@@ -81,15 +91,21 @@ async function mostrarHorariosMedico(idmedico){
 
 mostrarHorariosMedico(idmedico);
 
-function redirigir(idMedico){
-
-    if(fechaDesde && fechaHasta && turnoManana==null & turnoTarde==null){
-        window.location.href = `../html/turnosDisponibles.html?idMed=${idMedico}`;
-    }
-    else if(fechaDesde && fechaHasta && turnoManana){
-        window.location.href = `../html/horariosManiana.html?idMed=${idMedico}`;
+ 
+function redirigir(idMedico){ 
+    if(fechaDesde && fechaHasta){
+        if( turnoTodo!=null){
+            window.location.href = `../html/turnosDisponibles.html?idMed=${idMedico}`;
+        }
+        else if(turnoManana!=null){
+            window.location.href = `../html/horariosManiana.html?idMed=${idMedico}`;
+        }
+        else{
+            window.location.href = `../html/horariosTarde.html?idMed=${idMedico}`;
+        }  
     }
     else{
-        window.location.href = `../html/horariosTarde.html?idMed=${idMedico}`;
+        alert("seleccione fecha");
+
     }
-}
+} 
