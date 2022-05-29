@@ -42,8 +42,7 @@ async function mostrarMedicosporEspObra(idEspe,idObraSocial){
             if ( (medicoId.especialidades[0].nombre == selectEspecialidad) && ( medicoId.obrasSociales[0].nombre == selectOS)){
                 contador++;
                 document.querySelector(".sugerenciasMedicosEspObraSocial").innerHTML+='<div class="medicoIndividual" onClick=guardarMedico('+medicos[i].id_medico+')>'+
-                '<div class="ficha" id="med'+medicos[i].id_medico+'">'+
-                                '<img src="../img/dr'+[i+1]+'.jpeg" alt="">'+
+                '<div class="fichaMed" id="med'+medicos[i].id_medico+'">'+
                                 '<div>'+
                                 '<h3>Dr '+ medicos[i].nombre + ' ' +  medicos[i].apellido +  '</h3>'+
                                 '</div>'+
