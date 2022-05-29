@@ -26,12 +26,16 @@
             <input type="date" id="dateDesde" />
             <label for="hasta" >Hasta</label>
             <input type="date" id="dateHasta" /> 
-            <div class="momentoDelDiaElegido">
-                <label for="manana">Mañana</label>
-                <input type="radio" name="manana" value="manana" id="maniana"/>
-                <label for="tarde">Tarde</label>
-                <input type="radio" name="tarde" value="tarde" id="tarde"/>
-            </div>
+            <form>
+                <div class="momentoDelDiaElegido">
+                    <label for="todo">Todo</label>
+                    <input type="radio" name="turno" value="todo" id="todo" checked/>
+                    <label for="manana">Mañana</label>
+                    <input type="radio" name="turno" value="manana" id="maniana"/>
+                    <label for="tarde">Tarde</label>
+                    <input type="radio" name="turno" value="tarde" id="tarde"/>
+                </div>
+            </form>
         </div>
         <div class="botones">
             <button class="botonAplicar" id="aplicarRangos">Aplicar</button>
