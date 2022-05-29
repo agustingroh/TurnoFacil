@@ -5,7 +5,7 @@ let idmedico = params.get('idMed')
 console.log("medico "+idmedico);
 
 
- async function mostrarMedico(idmedico){
+async function mostrarMedico(idmedico){
     const respuesta= await fetch (`http://localhost:8080/medicos/${idmedico}`);
     const medicos = await respuesta.json();
     document.querySelector(".medicoIndividual").innerHTML+=
@@ -19,19 +19,37 @@ console.log("medico "+idmedico);
 }
 
 mostrarMedico(idmedico);
-document.querySelector(".botonAplicar").addEventListener("click", redirigir);
+
 
 let fechaDesde;
-document.querySelector("#dateDesde").addEventListener("click", ()=>{
-    fechaDesde=document.querySelector("#dateDesde").value;
+let fechaHasta;
+let turnoManana;
+let turnoTarde;
+
+
+document.querySelector("#dateDesde").addEventListener("change",(params)=>{
+   fechaDesde = document.querySelector("#dateDesde").value;
 });
 
-document.querySelector("#dateHasta").addEventListener("click", ()=>{
-    fechaHasta=document.querySelector("#dateHasta").value;
-});
+document.querySelector("#dateHasta").addEventListener("change",(params)=>{
+    fechaHasta = document.querySelector("#dateHasta").value;
+ });
+ 
+ document.querySelector("#maniana").addEventListener("change",(params)=>{
+    turnoManana = document.querySelector("#maniana").value;
+    document.querySelector("#tarde").disabled=true;
+  
+ });
+ document.querySelector("#tarde").addEventListener("change",(params)=>{
+    turnoTarde = document.querySelector("#maniana").disabled=true;
+ });
 
 
-let turno=selected();
+
+document.querySelector(".botonAplicar").addEventListener("click", redirigir);
+
+
+
 
 
 
@@ -42,10 +60,8 @@ function selected(){
     let maniana=document.getElementById("maniana").checked;
     let tarde=document.getElementById("tarde").checked;
     if(maniana){
-       console.log(document.getElementById("maniana").value); 
        return maniana;
     }else if(tarde){
-        console.log(document.getElementById("tarde").value);
         return tarde;
     }  
 }
@@ -64,14 +80,13 @@ async function mostrarHorariosMedico(idmedico){
 mostrarHorariosMedico(idmedico);
 
 function redirigir(){ 
-    window.location.href = "../html/prueba.html";
-    // console.log("red"+fechaDesde)
-    // console.log(fechaHasta)
-
-    // if (fechaDesde & fechaHasta){
-    //     window.location.href = "../html/prueba.html?fechaDesde="+fechaDesde + "?fechaHasta="+fechaHasta;
-    // }
-    // else if(fechaDesde & fechaHasta & turno){
-    //     window.location.href = "../html/prueba.html?fechaDesde="+fechaDesde + "?fechaHasta="+fechaHasta + "?turno=" + turno;
-    // }
+    if(fechaDesde && fechaHasta && turnoManana==null & turnoTarde==null){
+        window.location.href = "../html/turnosDisponibles.html";
+    }
+    else if(fechaDesde && fechaHasta && turnoManana){
+        window.location.href = "../html/horariosManiana.html";
+    }
+    else{
+        window.location.href = "../html/horariosTarde.html";
+    }
 }

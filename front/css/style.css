@@ -252,7 +252,7 @@ nav{
     display: flex;
 }
 
-.botonAplicar , .botonAplicarTurnoNoDisponible{
+.botonAplicar , .botonAplicarTurnoNoDisponible, .botonVolver{
     height: auto;
     border-radius: 30px;
     margin-top:20px;
@@ -261,7 +261,7 @@ nav{
     justify-content: flex-end;
 }
 
-.botonAplicarTurnoNoDisponible{
+.botonAplicarTurnoNoDisponible, .botonVolver{
     width: 180px;
     background: var(--color2);
     color: black;
@@ -274,3 +274,55 @@ nav{
     color: #fafafa;
     font-weight: bolder;
 }
+
+table {
+    
+    margin-top: 120px;
+    border: 1px solid #999;
+    border-collapse: collapse;
+    font-family: Georgia, Times, serif;
+    
+    }
+    th {
+    border: 1px solid #999;
+    font-size: 70%;
+    text-transform: uppercase;
+    }
+    td {
+    border: 1px solid #999;
+    height: 3em;
+    width:5em;
+    padding: 5px;
+    vertical-align: center;
+    }
+    caption {
+    font-size: 150%;
+    margin-bottom: 30px;
+    font-style: italic;
+    }
+    .day {
+    text-align: center;
+    }
+    .notes {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 80%;
+    text-align: center;
+   font-weight: bolder;
+    }
+    .ocupado {
+    background-color: #ECE;
+    }
+    .weekend {
+    background-color: #F3F3F3;
+    }
+
+    .containerTable{
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .botonesHora{
+        display: flex;
+        justify-content:space-around;
+        width:95%;
+    }
