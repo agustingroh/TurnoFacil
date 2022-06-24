@@ -9,21 +9,12 @@ export class MedicosController{
         
     }
 
-    public async getAll(){
-        const r = await this.medicosModel.getAll();
-        return r;
-
-    }
-    public async getById(id:number){
-        const r = await this.medicosModel.getById(id);
-        return r;
-
+    public async getAll():Promise<Array<Imedico>>{
+        return  await this.medicosModel.getAll();
     }
 
-    public async getTimeTable(id:number){
-        const timeTable = await this.medicosModel.getTimeTable(id);
-        return timeTable;
-
+    public async getById(id:number):Promise<IDatosMedico>{
+        return  await this.medicosModel.getById(id);
     }
 
     public async getTurnosMedicoById(id:number){
@@ -33,7 +24,7 @@ export class MedicosController{
     }
 
     public async hasNextWeek(id:number):Promise <Boolean>{
-        
+
         const r = await this.medicosModel.hasNextWeek(id);
         return r;
 
