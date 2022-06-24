@@ -1,4 +1,7 @@
 import {MedicosModel} from "../model/MedicosModel";
+import {Imedico} from "../model/Interfaces/Imedico/Imedico";
+import {IDatosMedico} from "../model/Interfaces/Imedico/IDatosMedico";
+import {IHorarioAtencionMedico} from "../model/Interfaces/IhorarioAtencion/IHorarioAtencionMedico";
 
 export class MedicosController{
 
@@ -9,26 +12,12 @@ export class MedicosController{
         
     }
 
-    public async getAll(){
-        const r = await this.medicosModel.getAll();
-        return r;
-
-    }
-    public async getById(id:number){
-        const r = await this.medicosModel.getById(id);
-        return r;
-
+    public async getAll():Promise<Array<Imedico>>{
+        return  await this.medicosModel.getAll();
     }
 
-    public async getTimeTable(id:number){
-        const timeTable = await this.medicosModel.getTimeTable(id);
-        return timeTable;
-
+    public async getById(id:number):Promise<IDatosMedico>{
+        return  await this.medicosModel.getById(id);
     }
 
-    public async getTurnosMedicoById(id:number){
-        const r = await this.medicosModel.getTurnosMedicoById(id);
-        return r;
-
-    }
 }

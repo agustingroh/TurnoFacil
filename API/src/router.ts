@@ -1,4 +1,4 @@
-import {EspecilidadController} from "./controllers/EspecilidadController";
+import {EspecialidadController} from "./controllers/EspecialidadController";
 
 var express = require('express');
 var bodyParser = require('body-parser');
@@ -16,6 +16,9 @@ app.use(bodyParser.json());
 var cors = require('cors');
 import {ObrasSocialController} from "./controllers/ObrasSocialController";
 import { MedicosController } from './controllers/MedicosController';
+import {HorarioAtencionModel} from "./model/HorarioAtencionModel";
+import {HorarioAtencionController} from "./controllers/HorarioAtencionController";
+import {TurnoController} from "./controllers/TurnoController";
 
 
 app.use(cors());
@@ -44,21 +47,21 @@ app.get(`/medicos/:id`, async function (req:any, res:any) {
 });
 
 app.get(`/medico/horarioatencion/:id`, async function (req:any, res:any) {
-    const med = new MedicosController();
-    const response = await med.getTimeTable(req.params.id);
+    const horarioAtencionController = new HorarioAtencionController()
+    const response = await horarioAtencionController.getTimeTable(req.params.id);
     res.status(200).send(response);
 });
 
 // Especialidades
 app.get('/especialidades', async function (req:any, res:any) {
-    const especilidades = new EspecilidadController();
+    const especilidades = new EspecialidadController();
     const response = await especilidades.getAll();
     res.status(200).send(response);
 });
 
 // Turnos disponibles
 app.get(`/medico/turnos/:id`, async function (req:any, res:any) {
-    const med = new MedicosController();
-    const response = await med.getTurnosMedicoById(req.params.id);
+    const turno = new TurnoController();
+    const response = await turno.getTurnosMedicoById(req.params.id);
     res.status(200).send(response); 
 });

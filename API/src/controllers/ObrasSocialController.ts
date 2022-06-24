@@ -1,4 +1,5 @@
 import {ObraSocialModel} from "../model/ObraSocialModel";
+import {IObraSocial} from "../model/Interfaces/IobraSocial/IObraSocial";
 
 export class ObrasSocialController{
 
@@ -9,7 +10,7 @@ export class ObrasSocialController{
         
     }
 
-    public async getAll(){
+    public async getAll():Promise<Array<IObraSocial>>{
         const r = await this.obraSocialModel.getAll();
         return r;
 
