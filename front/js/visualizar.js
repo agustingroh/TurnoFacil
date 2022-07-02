@@ -92,20 +92,33 @@ async function mostrarHorariosMedico(idmedico){
 mostrarHorariosMedico(idmedico);
 
  
-function redirigir(idMedico){ 
-    if(fechaDesde && fechaHasta){
-        if( turnoTodo!=null){
-            window.location.href = `../html/turnosDisponibles.html?idMed=${idMedico}`;
-        }
-        else if(turnoManana!=null){
-            window.location.href = `../html/horariosManiana.html?idMed=${idMedico}`;
-        }
-        else{
-            window.location.href = `../html/horariosTarde.html?idMed=${idMedico}`;
-        }  
+function estaDisponible(idMedico){
+    if(idMedico==1){
+        return true; 
     }
     else{
-        alert("seleccione fecha");
-
+        return false;
     }
 } 
+
+function redirigir(idMedico){ 
+    if(estaDisponible(idMedico)){
+        console.log(estaDisponible(idMedico));
+        if(fechaDesde && fechaHasta){
+            if( turnoTodo!=null){
+                window.location.href = `../html/turnosDisponibles.html?idMed=${idMedico}`;
+            }
+            else if(turnoManana!=null){
+                window.location.href = `../html/horariosManiana.html?idMed=${idMedico}`;
+            }
+            else{
+                window.location.href = `../html/horariosTarde.html?idMed=${idMedico}`;
+            }  
+        }
+        else{
+            alert("seleccione fecha");
+        }
+    }else{
+        window.location.href = `../html/turnosNoDisponibles.html?idMed=${idMedico}&fechaDesde=${fechaDesde}&fechaHasta=${fechaHasta}&todo=${turnoTodo}&maniana=${turnoManana}&tarde=${turnoTarde}`;
+    }
+}            
