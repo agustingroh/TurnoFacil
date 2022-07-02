@@ -93,11 +93,17 @@ mostrarHorariosMedico(idmedico);
 
  
 function estaDisponible(idMedico){
-    return idMedico.disponible==true;
+    if(idMedico==1){
+        return true; 
+    }
+    else{
+        return false;
+    }
 } 
 
 function redirigir(idMedico){ 
     if(estaDisponible(idMedico)){
+        console.log(estaDisponible(idMedico));
         if(fechaDesde && fechaHasta){
             if( turnoTodo!=null){
                 window.location.href = `../html/turnosDisponibles.html?idMed=${idMedico}`;

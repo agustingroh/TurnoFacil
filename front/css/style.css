@@ -277,7 +277,7 @@ nav{
     display: flex;
 }
 
-.botonAplicar , .botonAplicarTurnoNoDisponible, .botonVolver{
+.botonAplicar , .botonAplicarTurnoNoDisponible, .botonVolver,.btnProx{
     height: auto;
     border-radius: 30px;
     margin-top:20px;
@@ -286,7 +286,7 @@ nav{
     justify-content: flex-end;
 }
 
-.botonAplicarTurnoNoDisponible, .botonVolver{
+.botonAplicarTurnoNoDisponible, .botonVolver, .btnProx{
     width: 180px;
     background: var(--color2);
     color: black;
