@@ -31,4 +31,12 @@ export class MedicosController{
         return r;
 
     }
+
+    public async hasNextWeek(id:number):Promise <Boolean>{
+        
+        const r = await this.medicosModel.hasNextWeek(id);
+        return r;
+
+    }
+
 }
