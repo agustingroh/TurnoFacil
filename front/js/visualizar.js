@@ -92,17 +92,15 @@ async function mostrarHorariosMedico(idmedico){
 mostrarHorariosMedico(idmedico);
 
  
-function estaDisponible(idMedico){
-    if(idMedico==1){
-        return true; 
-    }
-    else{
-        return false;
-    }
+async function estaDisponible(idMedico){
+    const respuesta= await fetch (`http://localhost:8080/medico/disponibilidad/${idmedico}`);
+    const disponibilidad= await respuesta.json();
+    return disponibilidad;
 } 
 
-function redirigir(idMedico){ 
-    if(estaDisponible(idMedico)){
+async function redirigir(idMedico){ 
+    const disponibilidad= await estaDisponible(idMedico);
+    if(disponibilidad){
         console.log(estaDisponible(idMedico));
         if(fechaDesde && fechaHasta){
             if( turnoTodo!=null){

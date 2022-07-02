@@ -50,4 +50,12 @@ export class MedicosModel extends Model {
         db.close();   
         return turnos;
     }
+
+    public async hasNextWeek(id:number): Promise <Boolean>{
+
+        if (id==1){
+            return true;
+        }
+        return false;
+    }
 }

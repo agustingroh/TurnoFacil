@@ -62,3 +62,10 @@ app.get(`/medico/turnos/:id`, async function (req:any, res:any) {
     const response = await med.getTurnosMedicoById(req.params.id);
     res.status(200).send(response); 
 });
+
+// Turnos disponibles proxima semana
+app.get(`/medico/disponibilidad/:id`, async function (req:any, res:any) {
+    const med = new MedicosController();
+    const response = await med.hasNextWeek(req.params.id);
+    res.status(200).send(response); 
+});
