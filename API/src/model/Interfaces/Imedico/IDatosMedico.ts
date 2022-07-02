@@ -5,8 +5,8 @@ export interface IDatosMedico {
     nombre: string,
     apellido:string,
     dni:number,
-    especialidades:Array<IMedicoObraSocial>,
-    obraSocial: Array<IMedicoEspecialidad>,
+    especialidades:Array<IMedicoEspecialidad>,
+    obraSocial: Array<IMedicoObraSocial>,
 }
 
 export interface IMedicoObraSocial{
